@@ -1,0 +1,10 @@
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/legacy/CustomerData_USB.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/new_system/CustomerData_HTTPS.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/common/CustomerData.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/new_system/NewCustomerData_HTTPS.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/legacy/LegacyCustomerData_USB.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/exception/InvalidDataException.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/loader/FileLoader.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/Main.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/adapters/CustomerDataUSBAdapter.java
+/Users/dingnan/Documents/cs-665-assignment-4/src/main/java/edu/bu/met/cs665/exception/BaseInvalidDataException.java

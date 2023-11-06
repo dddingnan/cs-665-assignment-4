@@ -5,19 +5,36 @@ package edu.bu.met.cs665.common;
  * This interface declares the operations that can be performed on customer
  * data.
  */
-public interface CustomerData {
-    /**
-     * Prints the details of a customer based on the customer ID.
-     * 
-     * @param customerId the ID of the customer to print
-     */
-    void printCustomer(int customerId);
+public class CustomerData {
+    private String customerId;
+    private String customerName;
 
     /**
-     * Retrieves customer data for a given customer ID.
+     * Constructs an EmailTemplate with a specified customer type and message.
      * 
-     * @param customerId the ID of the customer whose data is to be retrieved
-     * @return an object representing the customer's data
+     * @param customerId   Type of customer the template is for.
+     * @param customerName Email message template.
      */
-    Object getCustomer(int customerId);
+    public CustomerData(String customerId, String customerName) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+    }
+
+    /**
+     * Retrieves the customer type of this template.
+     * 
+     * @return Customer type as a string.
+     */
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    /**
+     * Retrieves the message of this template.
+     * 
+     * @return Message as a string.
+     */
+    public String getCustomerName() {
+        return customerName;
+    }
 }

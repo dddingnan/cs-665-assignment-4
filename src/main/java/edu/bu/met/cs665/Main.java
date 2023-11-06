@@ -9,7 +9,11 @@
  */
 package edu.bu.met.cs665;
 
+import java.util.List;
+
 import edu.bu.met.cs665.exception.InvalidDataException;
+import edu.bu.met.cs665.loader.FileLoader;
+import edu.bu.met.cs665.common.CustomerData;
 
 public class Main {
 
@@ -27,6 +31,16 @@ public class Main {
    * @throws InterruptedException If there's an interrupted exception.
    */
   public static void main(String[] args) throws InvalidDataException, InterruptedException {
-    System.out.println("Email: ");
+
+    FileLoader loader = new FileLoader();
+    List<CustomerData> customers = loader.loadCustomer("src/data/customer.csv");
+    System.out.println("---------------------------");
+
+    for (CustomerData customer : customers) {
+      System.out.println("---" + customer.getCustomerId());
+      System.out.println("---" + customer.getCustomerName());
+    }
+
+    System.out.println("---------------------------");
   }
 }
