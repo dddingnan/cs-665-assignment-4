@@ -10,13 +10,6 @@
 package edu.bu.met.cs665;
 
 import edu.bu.met.cs665.exception.InvalidDataException;
-import edu.bu.met.cs665.factory.CustomerFactory;
-import edu.bu.met.cs665.loader.FileLoader;
-import edu.bu.met.cs665.customer.Customer;
-import edu.bu.met.cs665.customer.CustomerType;
-import edu.bu.met.cs665.email.*;
-
-import java.util.List;
 
 public class Main {
 
@@ -34,23 +27,6 @@ public class Main {
    * @throws InterruptedException If there's an interrupted exception.
    */
   public static void main(String[] args) throws InvalidDataException, InterruptedException {
-    FileLoader loader = new FileLoader();
-    List<EmailTemplate> templates = loader.loadEmailTemplates("src/data/email_templates.csv");
-
-    // Displaying the loaded templates
-    System.out.println("Loaded Email Templates:");
-    for (EmailTemplate template : templates) {
-      System.out.println("Customer Type: " + template.getCustomerType());
-      System.out.println("Message: " + template.getMessage());
-      System.out.println("---------------------------");
-    }
-
-    // TODO Create more customer and write the juni test.
-    // Using Enum to create a VIP customer
-    EmailTemplate vipTemplate = EmailTemplate.getTemplateByType(templates, CustomerType.VIP);
-    Customer vip = CustomerFactory.createCustomer(CustomerType.VIP, vipTemplate);
-    System.out.println("Customer Type: " + vip.getType());
-    System.out.println("Email: " + vip.getEmailMessage());
-
+    System.out.println("Email: ");
   }
 }

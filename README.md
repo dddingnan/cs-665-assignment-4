@@ -37,6 +37,9 @@ For each assignment, please answer the following:
    - Through `the use of interfaces` and `class inheritance`, duplicated code has been minimized.
 4. `Design patterns`
    - `Observer Pattern`: This choice was made to ensure a clear separation between shops (or subjects) and drivers (or observers). When a shop has a new delivery request, it broadcasts this request to all available drivers. [When one object changes state, an open-ended number of dependent objects should be updated automatically.](https://en.wikipedia.org/wiki/Observer_pattern)
+   - The design decision to use the Adapter Pattern.
+   - How the Adapter Pattern solves the problem of integrating the two systems.
+   - The Adapter Pattern is a structural design pattern that allows objects with incompatible interfaces to collaborate. The main purpose is to create a bridge between two incompatible interfaces. This is achieved by creating an adapter class that joins the functionalities of independent or incompatible interfaces.
 
 ## UML Diagram
 
