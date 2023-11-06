@@ -6,7 +6,7 @@ package edu.bu.met.cs665.common;
  * data.
  */
 public class CustomerData {
-    private String customerId;
+    private int customerId;
     private String customerName;
 
     /**
@@ -15,7 +15,7 @@ public class CustomerData {
      * @param customerId   Type of customer the template is for.
      * @param customerName Email message template.
      */
-    public CustomerData(String customerId, String customerName) {
+    public CustomerData(int customerId, String customerName) {
         this.customerId = customerId;
         this.customerName = customerName;
     }
@@ -25,7 +25,7 @@ public class CustomerData {
      * 
      * @return Customer type as a string.
      */
-    public String getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 

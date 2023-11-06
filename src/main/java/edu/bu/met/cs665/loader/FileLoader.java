@@ -46,10 +46,10 @@ public class FileLoader {
                     System.out.println("Invalid data format: " + line);
                     continue;
                 }
-                String customerType = data[0].trim();
-                String message = data[1].trim();
+                int customerId = Integer.parseInt(data[0].trim());
+                String customerName = data[1].trim();
 
-                customer.add(new CustomerData(customerType, message));
+                customer.add(new CustomerData(customerId, customerName));
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + fileName);
