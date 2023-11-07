@@ -1,9 +1,7 @@
 package edu.bu.met.cs665.legacy;
 
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import edu.bu.met.cs665.common.CustomerData;
@@ -21,14 +19,13 @@ public class LegacyCustomerData_USB implements CustomerData_USB {
         this.customerData = customerData;
     }
 
-    // TODO Here
     @Override
     public void printCustomer(int customerId) {
-        Optional<CustomerData> customer = customerData.stream()
-                .filter(c -> c.getCustomerId() == customerId)
-                .findFirst();
-        if (customer.isPresent()) {
-            System.out.println("Customer data for ID: " + customerId + ": " + customer.get());
+        Optional<CustomerData> customerOpt = findCustomerById(customerId);
+        if (customerOpt.isPresent()) {
+            CustomerData customer = customerOpt.get();
+            System.out.println("printCustomer - Customer ID: " + customer.getCustomerId() + ", Name: "
+                    + customer.getCustomerName());
         } else {
             System.out.println("Customer data for ID: " + customerId + " not found.");
         }
@@ -38,12 +35,12 @@ public class LegacyCustomerData_USB implements CustomerData_USB {
     public void getCustomer_USB(int customerId) {
         try {
             // Simulate a longer sleep time to represent a slower response time.
-            TimeUnit.SECONDS.sleep(2); // Sleep for 2 seconds
-            Optional<CustomerData> customer = customerData.stream()
-                    .filter(c -> c.getCustomerId() == customerId)
-                    .findFirst();
-            if (customer.isPresent()) {
-                System.out.println("Retrieved customer data for ID: " + customerId + ": " + customer.get());
+            TimeUnit.SECONDS.sleep(2);
+            Optional<CustomerData> customerOpt = findCustomerById(customerId);
+            if (customerOpt.isPresent()) {
+                CustomerData customer = customerOpt.get();
+                System.out.println("getCustomer_USB - Customer ID: " + customer.getCustomerId() +
+                        ", Name: " + customer.getCustomerName());
             } else {
                 System.out.println("Customer data for ID: " + customerId + " not found.");
             }
@@ -51,5 +48,11 @@ public class LegacyCustomerData_USB implements CustomerData_USB {
             Thread.currentThread().interrupt();
             System.err.println("The sleep operation was interrupted.");
         }
+    }
+
+    private Optional<CustomerData> findCustomerById(int customerId) {
+        return customerData.stream()
+                .filter(c -> c.getCustomerId() == customerId)
+                .findFirst();
     }
 }

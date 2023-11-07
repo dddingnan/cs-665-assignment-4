@@ -14,6 +14,9 @@ import java.util.List;
 import edu.bu.met.cs665.exception.InvalidDataException;
 import edu.bu.met.cs665.legacy.LegacyCustomerData_USB;
 import edu.bu.met.cs665.loader.FileLoader;
+import edu.bu.met.cs665.new_system.CustomerData_HTTPS;
+import edu.bu.met.cs665.new_system.NewCustomerData_HTTPS;
+import edu.bu.met.cs665.adapters.CustomerDataUSBAdapter;
 import edu.bu.met.cs665.common.CustomerData;
 
 public class Main {
@@ -37,14 +40,9 @@ public class Main {
     List<CustomerData> customers = loader.loadCustomer("src/data/customer.csv");
     System.out.println("---------------------------");
 
-    for (CustomerData customer : customers) {
-      System.out.println("---" + customer.getCustomerId());
-      System.out.println("---" + customer.getCustomerName());
-    }
-
-    System.out.println("---------------------------");
-    // Pass the loaded customers to the legacy system.
     LegacyCustomerData_USB legacySystem = new LegacyCustomerData_USB(customers);
+
+    NewCustomerData_HTTPS newSystem = new NewCustomerData_HTTPS(customers);
 
     // Now you can use legacySystem to print a customer or get a customer by ID.
     int customerId = 1; // Example customer ID.
@@ -52,5 +50,16 @@ public class Main {
     legacySystem.getCustomer_USB(customerId);
 
     System.out.println("---------------------------");
+
+    // // Now you can use legacySystem to print a customer or get a customer by ID.
+    newSystem.printCustomer(customerId);
+    newSystem.getCustomer_HTTPS(customerId);
+
+    System.out.println("---------------------------");
+    // Use the adapter to interact with the legacy system as if it were the new
+    // HTTPS system
+    CustomerData_HTTPS adapter = new CustomerDataUSBAdapter(legacySystem);
+    adapter.printCustomer(customerId);
+    adapter.getCustomer_HTTPS(customerId);
   }
 }
