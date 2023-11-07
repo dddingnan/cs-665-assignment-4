@@ -7,7 +7,7 @@
 
 # Assignment Overview
 
-AAAA
+Create a software solution that allows the old system, which accesses customer data via USB and binary files, to work seamlessly with the new system, which uses HTTPS and a REST API. The goal is to ensure the legacy system's interface can function with the new system's API, integrating the two for unified data access.
 
 # GitHub Repository Link:
 
@@ -30,16 +30,13 @@ For each assignment, please answer the following:
 ### `Answer`
 
 1. `Flexibility`
-   - `CSV Data Storage`: Using CSV files for data storage makes it simple to add, modify, or remove drivers without changing the core code. For instance, if we wish to incorporate new types of drivers, such as drone pilots, we simply need to ensure that the new driver class implements the Observer interface by adding into the CSV files.
+   - `CSV Data Storage`: Using CSV files for data storage makes it simple to add, modify, or remove customer without changing the core code. For instance, if we wish to incorporate new customer, we simply need to ensure that the new customer class implements the Customer data interface by adding into the CSV files.
 2. `Simplicity & Understandability`
-   - By using the observer pattern, ensuring each class has a single responsibility. This not only makes the code easier to read but also ensures that other developers can maintain and expand upon it without extensive effort.
+   - By using interfaces and classes to specific functionality (like CustomerData_HTTPS). This division can make the system more understandable for new developers or when maintaining the code.
 3. `Avoidance of Duplicated Code`
-   - Through `the use of interfaces` and `class inheritance`, duplicated code has been minimized.
+   - The use of an adapter pattern with `CustomerDataUSBAdapter` helps avoid duplicated code by allowing the new system to use the legacy `CustomerData_USB` interface without having to reimplement its functionality. Ensuring that all customer data operations are handled through well-defined interfaces can prevent code duplication, as any changes to the data handling would be localized to the specific implementations of these interfaces.
 4. `Design patterns`
-   - `Observer Pattern`: This choice was made to ensure a clear separation between shops (or subjects) and drivers (or observers). When a shop has a new delivery request, it broadcasts this request to all available drivers. [When one object changes state, an open-ended number of dependent objects should be updated automatically.](https://en.wikipedia.org/wiki/Observer_pattern)
-   - The design decision to use the Adapter Pattern.
-   - How the Adapter Pattern solves the problem of integrating the two systems.
-   - The Adapter Pattern is a structural design pattern that allows objects with incompatible interfaces to collaborate. The main purpose is to create a bridge between two incompatible interfaces. This is achieved by creating an adapter class that joins the functionalities of independent or incompatible interfaces.
+   - `Adapter pattern`: This choice was made to ensure to reconcile the differences between the legacy `CustomerData_USB` and the new `CustomerData_HTTPS` interface. [The main purpose is to create a bridge between two incompatible interfaces. This is achieved by creating an adapter class that joins the functionalities of independent or incompatible interfaces.](https://en.wikipedia.org/wiki/Adapter_pattern)
 
 ## UML Diagram
 
