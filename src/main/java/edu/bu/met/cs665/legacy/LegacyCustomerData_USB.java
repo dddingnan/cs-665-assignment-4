@@ -72,7 +72,7 @@ public class LegacyCustomerData_USB implements CustomerData_USB {
      * @param customerId The ID of the customer to find.
      * @return An Optional containing the found CustomerData or empty if not found.
      */
-    private Optional<CustomerData> findCustomerById(int customerId) {
+    public Optional<CustomerData> findCustomerById(int customerId) {
         return customerData.stream()
                 .filter(c -> c.getCustomerId() == customerId)
                 .findFirst();
