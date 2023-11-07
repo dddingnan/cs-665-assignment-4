@@ -1,7 +1,7 @@
 /**
  * Name: Dingnan Hsu
  * Course: CS-665 Software Designs & Patterns
- * Date: 10/03/2023
+ * Date: 11/06/2023
  * File Name: BaseInvalidDataException.java
  * Description: A custom exception class designed to handle invalid data scenarios.
  */

@@ -1,9 +1,9 @@
 /**
  * Name: Dingnan Hsu
  * Course: CS-665 Software Designs & Patterns
- * Date: 10/28/2023
+ * Date: 11/06/2023
  * File Name: FileLoader.java
- * Description: The FileLoader class provides utility functions to read email template data from CSV files.
+ * Description: The FileLoader class provides utility functions to read customer data from CSV files.
  * This method is loading data from a provided file and returning a list of corresponding objects.
  */
 
@@ -26,10 +26,10 @@ public class FileLoader {
 
     /**
      * Loads email templates data from a given CSV file.
-     * The CSV file format: "<customer_type>;<email_template>".
+     * The CSV file format: "<customer_id>;<customer_name>".
      *
      * @param fileName Name of the file to be read.
-     * @return A list of EmailTemplate objects.
+     * @return A list of Customer objects.
      * @throws FileNotFoundException If the file does not exist.
      * @throws IOException           If an error occurs while reading the file.
      * @throws InvalidDataException  If data in the file is invalid.
